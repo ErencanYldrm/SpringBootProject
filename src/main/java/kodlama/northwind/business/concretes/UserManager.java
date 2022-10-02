@@ -6,19 +6,14 @@ import kodlama.northwind.core.entities.User;
 import kodlama.northwind.core.utilities.results.DataResult;
 import kodlama.northwind.core.utilities.results.Result;
 import kodlama.northwind.core.utilities.results.SuccessResult;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class UserManager implements UserService {
 
-    private UserDao userDao;
-    @Autowired
-    public UserManager(UserDao userDao) {
-        super();
-        this.userDao = userDao;
-    }
-
+    private final UserDao userDao;
 
     @Override
     public Result add(User user) {

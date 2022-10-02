@@ -7,6 +7,7 @@ import kodlama.northwind.core.utilities.results.SuccessResult;
 import kodlama.northwind.dataAccess.abstracts.ProductDao;
 import kodlama.northwind.entities.concretes.Product;
 import kodlama.northwind.entities.dtos.ProductWithCategoryDto;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -17,14 +18,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class ProductManager implements ProductService {
-    private ProductDao productDao;
+    private final ProductDao productDao;
 
-    @Autowired
-    public ProductManager(ProductDao productDao) {
-        super();
-        this.productDao = productDao;
-    }
 
     @Override
     public DataResult<List<Product>> getAll() {
